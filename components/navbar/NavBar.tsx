@@ -1,5 +1,10 @@
+
+"use client"
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 const links = [
   { name: "Home", href: "/" },
@@ -10,13 +15,15 @@ const secondLinks = [
   { name: "Contact", href: "/" },
 ];
 const NavBar = () => {
+
   return (
-    <nav className="flex justify-between items-center  h-24   mx-auto  w-full max-w-7xl grow gap-5 p-5 rounded-b-md sticky top-0 z-50 bg-black px-8 ">
+   <main className="sticky top-0 z-50  h-24 max-w-7xl mx-auto px-8" >
+     <nav className="flex justify-between items-center   gap-5    mx-auto  w-full max-w-7xl  ">
       {/* link */}
-      <div className="flex items-center gap-12">
+      <div className="hidden md:flex items-center gap-12">
         {links.map((link) => (
           <Link
-            className="text-white hover:text-primary duration-300 uppercase font-sanchez "
+            className="text-black hover:text-primary duration-300 uppercase font-sanchez "
             key={link.name}
             href={link.href}
           >
@@ -26,26 +33,32 @@ const NavBar = () => {
       </div>
       {/* logo */}
 
-      <Image
+   <Link href="/">
+   <Image
         alt="Coffe logo"
         src="/logoco.png"
         className="w-64 p-4 mt-8 mb-6 "
         width={1500}
         height={1500}
       />
-      <div className="flex items-center gap-12">
+      </Link>
+       
+     <div className="block md:hidden">
+     <MobileMenu  />
+     </div>
+      <div className="hidden md:flex items-center gap-12">
         {secondLinks.map((link) => (
           <Link
-            className="text-white hover:text-primary duration-300 uppercase font-sanchez"
+            className="text-black hover:text-primary duration-300 uppercase font-sanchez"
             key={link.name}
             href={link.href}
           >
             {link.name}
           </Link>
         ))}
-        <div className="w-8 h-8 bg-primary rounded-full" />
       </div>
     </nav>
+   </main>
   );
 };
 
