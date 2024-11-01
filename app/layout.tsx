@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Amiko } from "next/font/google";
+import { Poppins, Amiko, Roboto_Mono, Roboto } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navbar/NavBar";
 
-
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["100", "300", "400", "500", "900", "700"],
   display: "swap",
 });
 const sanchez = Amiko({
@@ -27,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${sanchez.variable}  bg-primary/20 antialiased`}>
+      <body
+        className={`${poppins.className} ${sanchez.variable}  bg-primary/20 antialiased`}
+      >
         <NavBar />
         {children}
       </body>

@@ -11,7 +11,6 @@ import {
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const links = [
   { name: "Home", href: "/" },
@@ -26,7 +25,7 @@ const MobileMenu = () => {
       <DrawerTrigger className="bg-primary text-foreground rounded-full block md:hidden p-2 ">
         <Menu />
       </DrawerTrigger>
-      <DrawerContent className="h-full ml-20">
+      <DrawerContent className="h-full ml-20 bg-black border-none">
         <DrawerHeader className="flex  justify-between items-center">
           <DrawerTitle>
             <Link href="/">
